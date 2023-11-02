@@ -1129,7 +1129,7 @@ const Home = () => {
         </div>
       </div>
       <div className="pt-36 h-screen pb-11 overflow-hidden bg-[#F4F4F4]">
-        <div className="w-full justify-center flex md:mb-[143px] mb-[83px]">
+        <div className="w-full justify-center flex">
           <div className="hidden md:block">
             <FooterLogo />
           </div>
@@ -1141,7 +1141,7 @@ const Home = () => {
         {/* start */}
 
         <div className="flex justify-center w-full h-screen mt-[34px]">
-          <ItemContainer>
+          <div className="flex z-10 flex-col w-full pt-[10%] px-4 sm:px-5 h-full md:px-10">
             <ul className="w-full px-4 font-futura sm:px-0 sm:max-w-[303px] pb-5 md:max-w-[1166px]  mx-auto text-[10px] leading-[16px] font-normal">
               <li>Available in the US U+2013 Accredited investors elsewhere</li>
               <li>
@@ -1182,7 +1182,7 @@ const Home = () => {
                 <sup>6</sup> Included in the share offering price.
               </li>
             </ul>
-          </ItemContainer>
+          </div>
         </div>
 
         {/* end  */}
