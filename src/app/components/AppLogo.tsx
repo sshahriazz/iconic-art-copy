@@ -3,7 +3,7 @@ import React from "react";
 function AppLogo() {
   return (
     <div className="remove-up">
-      <div className="hidden mb-36 z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
+      <div className="hidden z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
         <svg
           className="start-svg-char"
           xmlns="http://www.w3.org/2000/svg"
@@ -277,7 +277,7 @@ function AppLogo() {
 export function NavLogo() {
   return (
     <div className="nav-logo ">
-      <div className="block md:hidden z-50">
+      <div className="block md:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="112"
@@ -338,7 +338,7 @@ export function NavLogo() {
           </defs>
         </svg>
       </div>
-      <div className="hidden md:block z-50">
+      <div className="hidden md:block">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="211"
