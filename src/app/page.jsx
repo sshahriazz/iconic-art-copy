@@ -65,7 +65,7 @@ const Home = () => {
         gsap.to(target, {
           x: 0,
           opacity: 1,
-          duration: 1,
+          duration: 0.5,
           scrollTrigger: {
             trigger: trigger,
             start: `top ${start}`,
@@ -86,8 +86,8 @@ const Home = () => {
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: ".body",
-              start: isDesktop ? "top -=5" : "top -=5",
-              end: isDesktop ? "+=100" : "+=200",
+              start: isDesktop ? "top -=5" : "top -=10",
+              end: isDesktop ? "+=100" : "+=500",
               scrub: 1.5,
               pin: true,
             },
@@ -141,13 +141,31 @@ const Home = () => {
             },
             "<"
           );
+          gsap.to(
+            ".logo-box-mobile",
+            {
+              y: 0,
+              scale: 1,
+              opacity: 1,
+            },
+            "<"
+          );
+          gsap.to(
+            ".logo-box-mobile-1",
+            {
+              y: 0,
+              scale: 1,
+              opacity: 1,
+            },
+            "<"
+          );
           tl.to(".remove-up", {
             y: -400,
             duration: 3,
             ease: Power3.easeOut,
           });
           tl.to(
-            ".top-center-rect",
+            isDesktop ? ".top-center-rect" : ".rect-mobile",
             {
               top: "-100%",
               duration: 1,
@@ -155,7 +173,7 @@ const Home = () => {
             },
             "<"
           );
-          tl.to(".left-bottom-rect", {
+          tl.to(isDesktop ? ".left-bottom-rect" : ".rect-mobile-1", {
             top: "-100%",
             duration: 1,
           });
@@ -207,20 +225,19 @@ const Home = () => {
           animateText({
             target: ".heading-text-craft",
             trigger: ".craft-trigger",
-            start: "+=130",
+            start: isDesktop ? "+=130" : "+=300",
           });
 
           animateText({
             target: ".sub-heading-text-craft",
             trigger: ".craft-trigger",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=240",
           });
           const parallax = gsap.timeline({
             scrollTrigger: {
               trigger: ".craft-parallax",
               start: `top +=950`,
               end: "+=100%",
-              markers: true,
               // pin: true,
               scrub: 1,
               // toggleActions: "play pause resume reverse",
@@ -253,17 +270,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-redefining",
             trigger: ".redefining-trigger",
-            start: "+=150",
+            start: isDesktop ? "+=150" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-redefining",
             trigger: ".redefining-trigger",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=240",
           });
           animateText({
             target: ".description-text-redefining",
             trigger: ".redefining-trigger",
-            start: "-=20",
+            start: isDesktop ? "-=20" : "+=150",
           });
           const redefining = gsap.timeline({
             scrollTrigger: {
@@ -297,17 +314,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-assets",
             trigger: ".assets-trigger",
-            start: "+=150",
+            start: isDesktop ? "+=150" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-assets",
             trigger: ".assets-trigger",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=200",
           });
           animateText({
             target: ".description-text-assets",
             trigger: ".assets-trigger",
-            start: "-=5",
+            start: isDesktop ? "-=5" : "100",
           });
           const assets = gsap.timeline({
             scrollTrigger: {
@@ -341,17 +358,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-world",
             trigger: ".world-trigger",
-            start: "+=160",
+            start: isDesktop ? "+=160" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-world",
             trigger: ".world-trigger",
-            start: "+=110",
+            start: isDesktop ? "+=110" : "+=200",
           });
           animateText({
             target: ".description-text-world",
             trigger: ".world-trigger",
-            start: "-=70",
+            start: isDesktop ? "-=70" : "+=100",
           });
           const world = gsap.timeline({
             scrollTrigger: {
@@ -389,17 +406,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-security",
             trigger: ".security-target",
-            start: "+=150",
+            start: isDesktop ? "+=150" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-security",
             trigger: ".security-target",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=200",
           });
           animateText({
             target: ".description-text-security",
             trigger: ".security-target",
-            start: "-=20",
+            start: isDesktop ? "-=20" : "+=150",
           });
           const security = gsap.timeline({
             scrollTrigger: {
@@ -434,17 +451,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-unique",
             trigger: ".unique-trigger",
-            start: "+=150",
+            start: isDesktop ? "+=150" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-unique",
             trigger: ".unique-trigger",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=200",
           });
           animateText({
             target: ".description-text-unique",
             trigger: ".unique-trigger",
-            start: "-=50",
+            start: isDesktop ? "-=50" : "+=150",
           });
           const unique = gsap.timeline({
             scrollTrigger: {
@@ -468,17 +485,17 @@ const Home = () => {
           animateText({
             target: ".heading-text-transparency",
             trigger: ".transparency-trigger",
-            start: "+=150",
+            start: isDesktop ? "+=150" : "+=300",
           });
           animateText({
             target: ".sub-heading-text-transparency",
             trigger: ".transparency-trigger",
-            start: "+=100",
+            start: isDesktop ? "+=100" : "+=200",
           });
           animateText({
             target: ".description-text-transparency",
             trigger: ".transparency-trigger",
-            start: "-=50",
+            start: isDesktop ? "-=50" : "+=150",
           });
           const transparency = gsap.timeline({
             scrollTrigger: {
@@ -545,9 +562,39 @@ const Home = () => {
   return (
     <div ref={main} className="relative">
       <div className="flex flex-col relative justify-center h-screen w-full px-4 md:px-10 max-w-[1440px] mx-auto">
+        <svg
+          className="absolute top-0 right-0 block logo-box-mobile sm:hidden  z-0"
+          width="130"
+          height="137"
+          viewBox="0 0 130 137"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="562"
+            height="137"
+            transform="matrix(-1 0 0 -1 562 137)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          className="absolute block sm:hidden bottom-0 logo-box-mobile-1 right-[30%] z-0"
+          width="65"
+          height="158"
+          viewBox="0 0 65 158"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="65"
+            height="306"
+            transform="matrix(-1 0 0 -1 65 306)"
+            fill="#F4F4F4"
+          />
+        </svg>
         <AppLogo />
         <svg
-          className="absolute top-center-rect"
+          className="absolute hidden sm:block top-center-rect"
           width="180"
           height="53"
           viewBox="0 0 180 53"
@@ -562,7 +609,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute bottom-center-rect-2 border"
+          className="absolute hidden sm:block bottom-center-rect-2 border"
           width="180"
           height="313"
           viewBox="0 0 180 313"
@@ -577,7 +624,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute top-right-rect"
+          className="absolute hidden sm:block top-right-rect"
           width="360"
           height="138"
           viewBox="0 0 360 138"
@@ -592,7 +639,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute top-center-rect-2"
+          className="absolute hidden sm:block top-center-rect-2"
           width="180"
           height="475"
           viewBox="0 0 180 475"
@@ -607,7 +654,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute left-bottom-rect"
+          className="absolute hidden sm:block left-bottom-rect"
           width="462"
           height="316"
           viewBox="0 0 462 316"
@@ -621,18 +668,90 @@ const Home = () => {
             fill="#F4F4F4"
           />
         </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="391"
+          className="absolute block sm:hidden rect-mobile"
+          height="196"
+          viewBox="0 0 391 196"
+          fill="none"
+        >
+          <path
+            d="M218.892 130.209L390.883 130.209L390.883 195.314L0.882804 195.314L0.882812 0.314436L218.892 0.314446L218.892 130.209Z"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          width="151"
+          height="121"
+          className="absolute block sm:hidden rect-mobile-1"
+          viewBox="0 0 151 121"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="151"
+            height="121"
+            transform="matrix(-1 0 0 -1 151 121)"
+            fill="#F4F4F4"
+          />
+        </svg>
       </div>
-      <div className="max-w-[1440px] mx-auto sticky bg-transparent pb-3 pt-10 top-0 z-10">
-        <div className="flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
-          <NavLogo />
-          <Button link="#">Find out more</Button>
-        </div>
+      <div className="max-w-[1440px]  z-50  mx-auto sticky pb-3 pt-10 top-0 flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
+        <NavLogo />
+        <Button link="#">Find out more</Button>
       </div>
       <Container className="relative craft-parallax">
+        <svg
+          width="130"
+          className="absolute block top-0 right-[10%] sm:hidden craft-box-mobile-1 z-0"
+          height="121"
+          viewBox="0 0 130 121"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="130"
+            height="171"
+            transform="matrix(1 0 0 -1 0 121)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          width="65"
+          className="absolute bottom-[12%] right-0 block sm:hidden craft-box-mobile z-0"
+          height="189"
+          viewBox="0 0 65 189"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="76"
+            height="189"
+            transform="matrix(-1 0 0 -1 76 189)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          className="absolute block bottom-0 right-0 sm:hidden craft-box-mobile-2 z-0"
+          width="195"
+          height="126"
+          viewBox="0 0 195 126"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="261"
+            height="225"
+            transform="matrix(-1 0 0 -1 261 225)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"craft-trigger"}>
           <ContentLayout
             title={
-              <Title className="heading-text-craft ">
+              <Title className="heading-text-craft">
                 Crafting <br className="block sm:hidden" /> Every <br />
                 Investment <br className="block sm:hidden" />
                 Piece
@@ -646,7 +765,7 @@ const Home = () => {
             description={<></>}
           />
         </ItemContainer>
-        <div className="absolute craft-box z-0">
+        <div className="absolute hidden sm:block craft-box z-0">
           <div className="absolute bg-white w-[70%] h-[65%] left-0 top-0"></div>
           <svg
             width="540"
@@ -666,7 +785,7 @@ const Home = () => {
         <svg
           width="180"
           height="52"
-          className="absolute craft-box-2 z-0"
+          className="absolute hidden sm:block craft-box-2 z-0"
           viewBox="0 0 180 52"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -681,6 +800,37 @@ const Home = () => {
       </Container>
 
       <Container className="relative redefining-parallax">
+        <svg
+          className="absolute top-0 left-0 block sm:hidden redefine-box-mobile"
+          width="195"
+          height="133"
+          viewBox="0 0 195 133"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="195"
+            height="182.308"
+            transform="matrix(1 0 0 -1 0 132.607)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          className="absolute top-0 right-0 block sm:hidden redefine-box-mobile-1"
+          width="128"
+          height="453"
+          viewBox="0 0 128 453"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="156"
+            height="574"
+            transform="matrix(1 0 0 -1 0 453)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"redefining-trigger"}>
           <ContentLayout
             title={
@@ -707,7 +857,7 @@ const Home = () => {
           width="330"
           height="200"
           viewBox="0 0 330 200"
-          className="absolute redefine-box-1"
+          className="absolute hidden sm:block redefine-box-1"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -719,7 +869,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute  redefine-box-2"
+          className="absolute hidden sm:block redefine-box-2"
           width="540"
           height="367"
           viewBox="0 0 540 367"
@@ -736,6 +886,37 @@ const Home = () => {
       </Container>
 
       <Container className="relative assets-parallax">
+        <svg
+          width="65"
+          height="160"
+          viewBox="0 0 65 160"
+          className="absolute top-0 right-0 block sm:hidden assets-box-mobile"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="156"
+            height="197"
+            transform="matrix(-1 0 0 1 156 -37)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          width="195"
+          height="68"
+          className="absolute bottom-0 right-0 block sm:hidden assets-box-mobile-1"
+          viewBox="0 0 195 68"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="195"
+            height="93"
+            transform="matrix(-1 0 0 -1 195 93)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"assets-trigger"}>
           <ContentLayout
             title={
@@ -764,7 +945,7 @@ const Home = () => {
         <svg
           width="540"
           height="512"
-          className="absolute assets-box"
+          className="absolute hidden sm:block assets-box"
           data-speed="2.5"
           viewBox="0 0 540 512"
           fill="none"
@@ -787,7 +968,7 @@ const Home = () => {
           data-speed={5}
           width="180"
           height="100"
-          className="absolute assets-box-2"
+          className="absolute hidden sm:block assets-box-2"
           viewBox="0 0 180 100"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -802,6 +983,28 @@ const Home = () => {
       </Container>
 
       <Container className="relative world-parallax">
+        <svg
+          className="absolute top-0 right-0 block sm:hidden world-box-mobile"
+          width="195"
+          height="441"
+          viewBox="0 0 195 441"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="97"
+            height="315"
+            transform="matrix(-1 0 0 -1 227 441)"
+            fill="#F4F4F4"
+          />
+          <rect
+            width="213"
+            height="183.137"
+            transform="matrix(-1 0 0 1 213 -37)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"world-trigger"}>
           <ContentLayout
             title={
@@ -835,7 +1038,7 @@ const Home = () => {
           width="720"
           height="588"
           viewBox="0 0 720 588"
-          className="absolute world-box"
+          className="absolute hidden sm:block world-box"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -854,7 +1057,7 @@ const Home = () => {
         </svg>
         <svg
           width="180"
-          className="absolute world-box-2"
+          className="absolute hidden sm:block world-box-2"
           height="40"
           viewBox="0 0 180 40"
           fill="none"
@@ -864,7 +1067,35 @@ const Home = () => {
         </svg>
       </Container>
 
-      <Container className="relative ">
+      <Container className="relative">
+        <svg
+          className="absolute block top-0 left-0 sm:hidden piece-box-mobile"
+          width="390"
+          height="404"
+          viewBox="0 0 390 404"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="130"
+            height="362"
+            transform="matrix(1 0 0 -1 65 331)"
+            fill="#F4F4F4"
+          />
+          <rect
+            width="130"
+            height="631"
+            transform="matrix(1 0 0 -1 -65 404)"
+            fill="#F4F4F4"
+          />
+          <rect
+            width="260"
+            height="440"
+            transform="matrix(-1 0 0 -1 455 404)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"security-target"}>
           <ContentLayout
             title={
@@ -891,7 +1122,7 @@ const Home = () => {
           />
         </ItemContainer>
         <svg
-          className="absolute security-box"
+          className="absolute hidden sm:block security-box"
           width="720"
           height="512"
           viewBox="0 0 720 512"
@@ -918,7 +1149,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute security-box-2"
+          className="absolute hidden sm:block security-box-2"
           width="180"
           height="275"
           viewBox="0 0 180 275"
@@ -929,6 +1160,43 @@ const Home = () => {
         </svg>
       </Container>
       <Container className="relative unique-parallax">
+        <svg
+          width="390"
+          className="absolute block top-0 left-0 sm:hidden unique-box-mobile"
+          height="340"
+          viewBox="0 0 390 340"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="205"
+            height="339"
+            transform="matrix(-1 0 0 1 465 -37)"
+            fill="#F4F4F4"
+          />
+          <rect
+            width="299"
+            height="366"
+            transform="matrix(1 0 0 -1 -39 340)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          width="181"
+          height="71"
+          className="absolute block bottom-0 right-0 sm:hidden unique-box-mobile-1"
+          viewBox="0 0 181 71"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="197"
+            height="86"
+            transform="matrix(-1 0 0 -1 197 86)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className={"unique-trigger"}>
           <ContentLayout
             title={<Title className="heading-text-unique">our blueprint</Title>}
@@ -938,7 +1206,7 @@ const Home = () => {
               </SubTitle>
             }
           />
-          <div className="w-full description-text-unique md:w-[640px] self-start md:self-end text-[22px] font-medium">
+          <div className="w-full description-text-unique pb-[55%] sm:pb-0 md:w-[640px] self-start md:self-end text-[22px] font-medium">
             {collapseData.map((desc, index) => (
               <Collapsed
                 isActive={activeIndex === index}
@@ -956,7 +1224,7 @@ const Home = () => {
         </ItemContainer>
         <svg
           width="720"
-          className="absolute unique-box  -z-10"
+          className="absolute hidden sm:block unique-box  -z-10"
           height="370"
           viewBox="0 0 720 370"
           fill="none"
@@ -971,6 +1239,44 @@ const Home = () => {
         </svg>
       </Container>
       <Container className="relative transparency-parallax">
+        <svg
+          className="absolute bottom-0 left-0 block sm:hidden transparency-box-mobile-1"
+          width="107"
+          height="162"
+          viewBox="0 0 107 162"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="107"
+            height="223"
+            transform="matrix(-1 0 0 -1 107 223)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
+        <svg
+          width="390"
+          className="absolute block top-0 left-0 sm:hidden transparency-box-mobile"
+          height="288"
+          viewBox="0 0 390 288"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="138"
+            height="208"
+            transform="matrix(-1 0 0 -1 463 288)"
+            fill="#F4F4F4"
+          />
+          <rect
+            width="442"
+            height="197"
+            transform="matrix(-1 0 0 1 425 -37)"
+            fill="#F4F4F4"
+          />
+        </svg>
+
         <ItemContainer className="transparency-trigger">
           <ContentLayout
             title={
@@ -993,7 +1299,7 @@ const Home = () => {
           />
         </ItemContainer>
         <svg
-          className="absolute transparency-box-2"
+          className="absolute hidden sm:block transparency-box-2"
           width="360"
           height="142"
           viewBox="0 0 360 142"
@@ -1009,7 +1315,7 @@ const Home = () => {
         </svg>
 
         <svg
-          className="absolute transparency-box"
+          className="absolute hidden sm:block transparency-box"
           width="900"
           height="576"
           viewBox="0 0 900 576"
@@ -1033,6 +1339,22 @@ const Home = () => {
       <div className="xl:h-screen max-w-[1440px] mx-auto piece-trigger overflow-hidden">
         <div className="grid grid-cols-1 xl:grid-cols-2">
           <div className="flex relative flex-col w-full xl:h-screen py-28 sm:py-10">
+            <svg
+              className="absolute bottom-0 right-0"
+              width="195"
+              height="66"
+              viewBox="0 0 195 66"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                width="268"
+                height="66"
+                transform="matrix(-1 0 0 -1 268 66)"
+                fill="#F4F4F4"
+              />
+            </svg>
+
             <div className="flex items-start h-full justify-center px-4 md:px-10 flex-col">
               <h1 className="heading-text-piece z-10 text-[3.375rem] block md:text-[8.125rem] max-w-[327px] md:max-w-[972px]  font-bold leading-[80%] uppercase text-[#373635]">
                 Own a piece <br /> of a <br /> master piece
@@ -1043,7 +1365,7 @@ const Home = () => {
             </div>
             <svg
               width="183"
-              className="absolute piece-box -z-10"
+              className="absolute hidden sm:block piece-box -z-10"
               height="284"
               viewBox="0 0 183 284"
               fill="none"
@@ -1206,7 +1528,7 @@ function Description({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] z-10 font-futura md:text-[22px] pb-[5%] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
+        "text-[14px] z-10 font-futura md:text-[22px] pb-[50%] sm:pb-[5%] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
@@ -1220,7 +1542,7 @@ function WorldDescription({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] z-10 font-futura md:text-[22px] pb-[5%]  font-medium leading-[140%] max-w-[290px] md:max-w-[650px] self-start md:self-end text-[#373635]" +
+        "text-[14px] z-10 font-futura md:text-[22px] pb-[50%] sm:pb-[5%]  font-medium leading-[140%] max-w-[290px] md:max-w-[650px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
@@ -1251,7 +1573,7 @@ function Title({ children, className = "", id }) {
       className={
         className +
         " " +
-        "text-[3.375rem] block z-10 md:text-[8rem] max-w-[327px] md:max-w-[972px]  font-bold leading-[80%] uppercase text-[#373635]"
+        "text-[3.375rem] block md:text-[8rem] max-w-[327px] md:max-w-[972px]  font-bold leading-[80%] uppercase text-[#373635]"
       }
     >
       {children}
@@ -1298,7 +1620,7 @@ function ItemContainer({ children, className }) {
 function ContentLayout({ title, subTitle, description }) {
   return (
     <div className="flex flex-col z-10 justify-between h-full w-full">
-      <div>
+      <div className="pt-32 sm:pt-0">
         {title}
         {subTitle}
       </div>
