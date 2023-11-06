@@ -3,7 +3,7 @@ import React from "react";
 function FooterLogo() {
   return (
     <div className="">
-      <div className="hidden mb-36 z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
+      <div className="hidden z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
         <svg
           className="start-svg-char"
           xmlns="http://www.w3.org/2000/svg"
