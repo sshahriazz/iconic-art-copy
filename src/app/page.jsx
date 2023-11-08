@@ -221,6 +221,85 @@ const Home = () => {
             },
             "<"
           );
+          gsap.fromTo(
+            ".craft-mobile-box",
+            { top: "100%" },
+            {
+              top: 0,
+              delay: 1,
+              duration: 1,
+              scrollTrigger: {
+                trigger: ".craft-trigger",
+                start: `top +=40%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".craft-mobile-box-1",
+            { bottom: "-100%" },
+            {
+              bottom: "12%",
+              delay: 0.5,
+              duration: 1,
+              scrollTrigger: {
+                trigger: ".craft-trigger",
+                start: `top +=40%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".craft-mobile-box-2",
+            { bottom: "-100%" },
+            {
+              bottom: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: ".craft-trigger",
+                start: `top +=40%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+
+          const parallax = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".craft-parallax",
+              start: `top +=30%`,
+              end: "+=100%",
+              // pin: true,
+              // scrub: 1,
+              toggleActions: "play pause resume reverse",
+            },
+          });
+          parallax.fromTo(
+            ".craft-box",
+            {
+              right: 0,
+              bottom: "-150%",
+            },
+            {
+              bottom: 0,
+              duration: 1,
+            }
+          );
+          parallax.fromTo(
+            ".craft-box-2",
+            {
+              left: "45%",
+              top: "190%",
+            },
+            {
+              top: 0,
+              duration: 1,
+            },
+            "<"
+          );
+          // craft-mobile-box
 
           animateText({
             target: ".heading-text-craft",
@@ -233,40 +312,51 @@ const Home = () => {
             trigger: ".craft-trigger",
             start: isDesktop ? "+=100" : "+=240",
           });
-          const parallax = gsap.timeline({
+
+          const redefining = gsap.timeline({
             scrollTrigger: {
-              trigger: ".craft-parallax",
-              start: `top +=950`,
+              trigger: ".redefining-parallax",
+              start: `top +=30%`,
               end: "+=100%",
-              // pin: true,
-              scrub: 1,
-              // toggleActions: "play pause resume reverse",
+              toggleActions: "play pause resume reverse",
             },
           });
-          parallax.fromTo(
-            ".craft-box",
+          redefining.fromTo(
+            ".redefine-box-1",
+            { right: 0, top: "90%" },
             {
-              right: 0,
-              bottom: 800,
-            },
-            {
-              bottom: 0,
-              // duration: 6,
+              top: 0,
+              duration: 1,
             }
           );
-          parallax.fromTo(
-            ".craft-box-2",
+          redefining.fromTo(
+            ".redefine-box-2",
             {
-              top: 0,
-              left: "45%",
-              top: 900,
+              left: "25%",
+              top: "150%",
             },
             {
               top: 0,
-              // duration: 1,
+              left: "25%",
+              duration: 0.5,
             },
             "<"
           );
+          gsap.fromTo(
+            ".redefining-mobile-box",
+            { top: "100%" },
+            {
+              top: 0,
+              stagger: 0.5,
+              scrollTrigger: {
+                trigger: ".redefining-trigger",
+                start: `top +=50%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+
           animateText({
             target: ".heading-text-redefining",
             trigger: ".redefining-trigger",
@@ -282,35 +372,65 @@ const Home = () => {
             trigger: ".redefining-trigger",
             start: isDesktop ? "-=20" : "+=150",
           });
-          const redefining = gsap.timeline({
+          const assets = gsap.timeline({
             scrollTrigger: {
-              trigger: ".redefining-parallax",
-              start: `top +=20%`,
-              end: "+=600",
-              scrub: 2,
+              trigger: ".assets-parallax",
+              start: `top +=30%`,
+              end: "+=100%",
+              toggleActions: "play pause resume reverse",
             },
           });
-          redefining.fromTo(
-            ".redefine-box-1",
-            { right: 0, top: 400 },
+          assets.fromTo(
+            ".assets-box",
+            { top: "150%", right: 0 },
             {
               top: 0,
-              duration: 1,
+              opacity: 1,
+              scale: 1,
             }
           );
-          redefining.fromTo(
-            ".redefine-box-2",
+          assets.fromTo(
+            ".assets-box-2",
             {
-              left: "25%",
-              top: 900,
+              bottom: "-200%",
+              left: "35%",
             },
             {
-              top: 0,
-              left: "25%",
-              duration: 0.5,
+              bottom: 0,
             },
             "<"
           );
+          gsap.fromTo(
+            ".assets-box-mobile",
+            {
+              top: "100%",
+            },
+            {
+              top: 0,
+              scrollTrigger: {
+                trigger: ".assets-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".assets-box-mobile-1",
+            {
+              bottom: "100%",
+            },
+            {
+              bottom: 0,
+              scrollTrigger: {
+                trigger: ".assets-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+
           animateText({
             target: ".heading-text-assets",
             trigger: ".assets-trigger",
@@ -326,35 +446,37 @@ const Home = () => {
             trigger: ".assets-trigger",
             start: isDesktop ? "-=5" : "100",
           });
-          const assets = gsap.timeline({
+
+          const world = gsap.timeline({
             scrollTrigger: {
-              trigger: ".assets-parallax",
+              trigger: ".world-parallax",
               start: `top +=30%`,
-              end: "+=400",
-              scrub: 1,
+              end: "+=100%",
+              toggleActions: "play pause resume reverse",
             },
           });
-          assets.fromTo(
-            ".assets-box",
-            { top: 600, right: 0 },
+          world.fromTo(
+            ".world-box",
+            {
+              top: "100%",
+              right: 0,
+            },
             {
               top: 0,
-
-              opacity: 1,
-              scale: 1,
             }
           );
-          assets.fromTo(
-            ".assets-box-2",
+          world.fromTo(
+            ".world-box-2",
             {
-              bottom: 500,
-              left: "35%",
+              bottom: "-200%",
+              left: "45%",
             },
             {
               bottom: 0,
             },
             "<"
           );
+
           animateText({
             target: ".heading-text-world",
             trigger: ".world-trigger",
@@ -370,36 +492,33 @@ const Home = () => {
             trigger: ".world-trigger",
             start: isDesktop ? "-=70" : "+=100",
           });
-          const world = gsap.timeline({
+          const security = gsap.timeline({
             scrollTrigger: {
-              trigger: ".world-parallax",
-              start: `top +=10%`,
-              end: "+=400",
-              scrub: 1,
+              trigger: ".security-target",
+              start: `top +=30%`,
+              end: "+=100%",
+              toggleActions: "play pause resume reverse",
             },
           });
-          world.fromTo(
-            ".world-box",
+          security.fromTo(
+            ".security-box",
             {
-              top: 600,
+              top: "100%",
               right: 0,
             },
             {
               top: 0,
-              opacity: 1,
-              scale: 1,
+              duration: 1,
             }
           );
-          world.fromTo(
-            ".world-box-2",
+          security.fromTo(
+            ".security-box-2",
             {
-              bottom: 500,
               left: "45%",
+              bottom: "-150%",
             },
             {
               bottom: 0,
-              opacity: 1,
-              scale: 1,
             },
             "<"
           );
@@ -418,36 +537,26 @@ const Home = () => {
             trigger: ".security-target",
             start: isDesktop ? "-=20" : "+=150",
           });
-          const security = gsap.timeline({
+
+          const unique = gsap.timeline({
             scrollTrigger: {
-              trigger: ".security-target",
-              start: `top +=10%`,
-              end: "+=400",
-              scrub: 1,
+              trigger: ".unique-parallax",
+              start: `top +=30%`,
+              end: "+=100%",
+              toggleActions: "play pause resume reverse",
             },
           });
-          security.fromTo(
-            ".security-box",
+          unique.fromTo(
+            ".unique-box",
             {
-              top: 600,
               right: 0,
+              top: "100%",
             },
             {
               top: 0,
-              duration: 1,
             }
           );
-          security.fromTo(
-            ".security-box-2",
-            {
-              left: "45%",
-              bottom: 500,
-            },
-            {
-              bottom: 0,
-            },
-            "<"
-          );
+
           animateText({
             target: ".heading-text-unique",
             trigger: ".unique-trigger",
@@ -484,23 +593,31 @@ const Home = () => {
             },
           });
 
-          const unique = gsap.timeline({
+          const transparency = gsap.timeline({
             scrollTrigger: {
-              trigger: ".unique-parallax",
-              start: `top +=10%`,
-              end: "+=400",
-              scrub: 1,
+              trigger: ".transparency-parallax",
+              start: `top +=30%`,
+              end: "+=100%",
+              toggleActions: "play pause resume reverse",
             },
           });
-          unique.fromTo(
-            ".unique-box",
-            {
-              right: 0,
-              top: 600,
-            },
+          transparency.fromTo(
+            ".transparency-box",
+            { top: "100%", right: 0 },
             {
               top: 0,
             }
+          );
+          transparency.fromTo(
+            ".transparency-box-2",
+            {
+              left: 0,
+              bottom: "-100%",
+            },
+            {
+              bottom: 0,
+            },
+            "<"
           );
 
           animateText({
@@ -518,32 +635,7 @@ const Home = () => {
             trigger: ".transparency-trigger",
             start: isDesktop ? "-=50" : "+=150",
           });
-          const transparency = gsap.timeline({
-            scrollTrigger: {
-              trigger: ".transparency-parallax",
-              start: `top +=10%`,
-              end: "+=200",
-              scrub: 1,
-            },
-          });
-          transparency.fromTo(
-            ".transparency-box",
-            { top: 800, right: 0 },
-            {
-              top: 0,
-            }
-          );
-          transparency.fromTo(
-            ".transparency-box-2",
-            {
-              left: 0,
-              bottom: 500,
-            },
-            {
-              bottom: 0,
-            },
-            "<"
-          );
+
           animateText({
             target: ".heading-text-piece",
             trigger: ".piece-trigger",
@@ -769,7 +861,7 @@ const Home = () => {
       <Container className="relative craft-parallax">
         <svg
           width="130"
-          className="absolute block top-0 right-[10%] sm:hidden craft-box-mobile-1 z-0"
+          className="absolute block craft-mobile-box  right-[10%] sm:hidden craft-box-mobile-1 z-0"
           height="121"
           viewBox="0 0 130 121"
           fill="none"
@@ -784,7 +876,7 @@ const Home = () => {
         </svg>
         <svg
           width="65"
-          className="absolute bottom-[12%] right-0 block sm:hidden craft-box-mobile z-0"
+          className="absolute craft-mobile-box-1  right-0 block sm:hidden craft-box-mobile z-0"
           height="189"
           viewBox="0 0 65 189"
           fill="none"
@@ -798,7 +890,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute block bottom-0 right-0 sm:hidden craft-box-mobile-2 z-0"
+          className="absolute block craft-mobile-box-2  right-0 sm:hidden craft-box-mobile-2 z-0"
           width="195"
           height="126"
           viewBox="0 0 195 126"
@@ -866,7 +958,7 @@ const Home = () => {
 
       <Container className="relative redefining-parallax">
         <svg
-          className="absolute top-0 left-0 block sm:hidden redefine-box-mobile"
+          className="absolute redefining-mobile-box left-0 block sm:hidden redefine-box-mobile"
           width="195"
           height="133"
           viewBox="0 0 195 133"
@@ -881,7 +973,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute top-0 right-0 block sm:hidden redefine-box-mobile-1"
+          className="absolute redefining-mobile-box right-0 block sm:hidden redefine-box-mobile-1"
           width="128"
           height="453"
           viewBox="0 0 128 453"
@@ -955,7 +1047,7 @@ const Home = () => {
           width="65"
           height="160"
           viewBox="0 0 65 160"
-          className="absolute top-0 right-0 block sm:hidden assets-box-mobile"
+          className="absolute right-0 block sm:hidden assets-box-mobile"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -969,7 +1061,7 @@ const Home = () => {
         <svg
           width="195"
           height="68"
-          className="absolute bottom-0 right-0 block sm:hidden assets-box-mobile-1"
+          className="absolute right-0 block sm:hidden assets-box-mobile-1"
           viewBox="0 0 195 68"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
