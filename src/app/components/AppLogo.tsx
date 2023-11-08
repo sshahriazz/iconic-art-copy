@@ -276,7 +276,7 @@ function AppLogo() {
 
 export function NavLogo() {
   return (
-    <div className="nav-logo ">
+    <div className="nav-logo hide-with-footer">
       <div className="block md:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"

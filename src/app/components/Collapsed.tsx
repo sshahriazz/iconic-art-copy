@@ -1,6 +1,8 @@
 "use client";
-import React, { Suspense, useState } from "react";
+import React, { Suspense, useRef, useState } from "react";
 import { useCollapse } from "react-collapsed";
+import { useIsomorphicLayoutEffect } from "./helpers/isomorphicEffect";
+import { gsap } from "gsap/dist/gsap";
 
 function Collapsed({
   children,
@@ -11,37 +13,26 @@ function Collapsed({
 }) {
   const { getCollapseProps, getToggleProps } = useCollapse({
     isExpanded: isActive,
+    duration: 500,
   });
 
   return (
-    <div className="pt-2">
+    <div className="pt-2 w-full">
       <button
         {...getToggleProps({
           onClick: onSelect,
         })}
-        className={
-          !isActive
-            ? "w-full border-b-2 border-black text-left font-futura"
-            : "w-full text-left font-futura"
-        }
+        className={`text-left w-full font-futura`}
       >
         {isActive ? openContent : closeContent}
       </button>
-      <section
-        {...getCollapseProps()}
-        className="border-b-2 pt-2.5 pb-8 font-futura border-black"
-      >
-        {children}
-      </section>
+      <div className="border-width border-b-2 border-black">
+        <section {...getCollapseProps()} className={`w-full font-futura`}>
+          {children}
+        </section>
+      </div>
     </div>
   );
 }
-
-Collapsed.defaultProps = {
-  openContent: "Open",
-  closeContent: "Close",
-  isActive: false,
-  onSelect: () => {},
-};
 
 export default Collapsed;

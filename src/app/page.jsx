@@ -456,13 +456,34 @@ const Home = () => {
           animateText({
             target: ".sub-heading-text-unique",
             trigger: ".unique-trigger",
-            start: isDesktop ? "+=100" : "+=200",
+            start: isDesktop ? "+=50" : "+=200",
           });
-          animateText({
-            target: ".description-text-unique",
-            trigger: ".unique-trigger",
-            start: isDesktop ? "-=50" : "+=150",
+
+          gsap.to(".description-text-unique", {
+            x: 0,
+            opacity: 1,
+            duration: 0.5,
+            scrollTrigger: {
+              trigger: ".unique-trigger",
+              start: `top ${isDesktop ? "top" : "+=150"}`,
+              toggleActions: "play pause resume reverse",
+            },
+            onComplete: () => {
+              gsap.to(".border-width", {
+                width: isDesktop ? "100%" : "100%",
+                duration: 1,
+                stagger: 0.1,
+              });
+            },
+            onReverseComplete: () => {
+              gsap.to(".border-width", {
+                width: isDesktop ? "0%" : "0%",
+                duration: 0.5,
+                stagger: 0.1,
+              });
+            },
           });
+
           const unique = gsap.timeline({
             scrollTrigger: {
               trigger: ".unique-parallax",
@@ -542,7 +563,38 @@ const Home = () => {
               start: `top +=150`,
               toggleActions: "play pause resume reverse",
             },
+            onComplete: () => {
+              gsap.to(".nav-button", {
+                opacity: 0,
+                display: "none",
+              });
+              gsap.to(
+                ".email-block-border",
+                {
+                  width: "100%",
+                  duration: 0.5,
+                  stagger: 0.1,
+                },
+                "<"
+              );
+            },
+            onReverseComplete: () => {
+              gsap.to(".nav-button", {
+                opacity: 1,
+                display: "block",
+              });
+              gsap.to(
+                ".email-block-border",
+                {
+                  width: "0%",
+                  duration: 0.5,
+                  stagger: 0.5,
+                },
+                "<"
+              );
+            },
           });
+
           gsap.to(".piece-box", {
             bottom: 0,
             opacity: 1,
@@ -550,6 +602,19 @@ const Home = () => {
               trigger: ".piece-trigger",
               start: `top +=10%`,
               toggleActions: "play pause resume reverse",
+            },
+          });
+          gsap.to(".nav-logo", {
+            opacity: 0,
+            scrollTrigger: {
+              trigger: ".hide-footer-logo",
+              start: "top center",
+              toggleActions: "play pause resume reverse",
+            },
+            onReverseComplete: () => {
+              gsap.to(".nav-logo", {
+                opacity: 1,
+              });
             },
           });
         }
@@ -697,7 +762,7 @@ const Home = () => {
           />
         </svg>
       </div>
-      <div className="max-w-[1440px]  z-50  mx-auto sticky pb-3 pt-10 top-0 flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
+      <div className="max-w-[1440px]   z-50  mx-auto sticky pb-3 pt-10 top-0 flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
         <NavLogo />
         <Button link="#">Find out more</Button>
       </div>
@@ -1206,7 +1271,7 @@ const Home = () => {
               </SubTitle>
             }
           />
-          <div className="w-full description-text-unique pb-[55%] sm:pb-0 md:w-[640px] self-start md:self-end text-[22px] font-medium">
+          <div className="description-text-unique w-full md:w-1/2 pb-[50%] sm:pb-0  self-start md:self-end text-[22px] font-medium">
             {collapseData.map((desc, index) => (
               <Collapsed
                 isActive={activeIndex === index}
@@ -1403,15 +1468,20 @@ const Home = () => {
                   >
                     Your Name
                   </label>
-                  <Field
-                    id="name"
-                    name="name"
-                    type="text"
-                    autoComplete="name"
-                    placeholder="Enter your name"
-                    required
-                    className="w-full px-0 border-0 text-white font-bold sm:text-[2rem] leading-[38.4px] border-white border-b bg-transparent  placeholder:text-gray-200 focus:ring-0 focus:ring-inset focus:ring-transparent text-sm sm:leading-6"
-                  />
+                  <div className="flex justify-between w-full align-middle items-center">
+                    <Field
+                      id="name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      placeholder="Enter your name"
+                      required
+                      className="w-full px-0 border-0 text-white font-bold sm:text-[2rem] leading-[38.4px] bg-transparent  placeholder:text-gray-200 focus:ring-0 focus:ring-inset focus:ring-transparent text-sm sm:leading-6"
+                    />
+                    <span className="font-bold text-3xl pr-3 pt-4">*</span>
+                  </div>
+
+                  <span className="email-block-border w-0 border border-white"></span>
                   {errors.name && touched.name ? (
                     <span className="text-white font-futura text-sm leading-[140%] font-medium">
                       {errors.name}
@@ -1423,15 +1493,20 @@ const Home = () => {
                   >
                     Your Email
                   </label>
-                  <Field
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    placeholder="jo@domaine"
-                    required
-                    className="w-full px-0 border-0 text-white font-bold sm:text-[2rem] leading-[38.4px] border-white border-b bg-transparent  placeholder:text-gray-200 focus:ring-0 focus:ring-inset focus:ring-transparent text-md sm:leading-6"
-                  />
+                  <div className="flex justify-between w-full align-middle items-center">
+                    <Field
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="jo@domaine"
+                      required
+                      className="w-full px-0 border-0 text-white font-bold sm:text-[2rem] leading-[38.4px]  bg-transparent  placeholder:text-gray-200 focus:ring-0 focus:ring-inset focus:ring-transparent text-md sm:leading-6"
+                    />
+                    <span className="font-bold text-3xl pr-3 pt-4">*</span>
+                  </div>
+                  <span className="email-block-border w-0 border border-white"></span>
+
                   {errors.email && touched.email ? (
                     <span className="text-white text-sm font-futura leading-[140%] font-medium">
                       {errors.email}
@@ -1451,7 +1526,7 @@ const Home = () => {
         </div>
       </div>
       <div className="pt-36 h-screen pb-11 overflow-hidden bg-[#F4F4F4]">
-        <div className="w-full justify-center flex">
+        <div className="w-full justify-center flex hide-footer-logo">
           <div className="hidden md:block">
             <FooterLogo />
           </div>
@@ -1517,7 +1592,11 @@ export default Home;
 
 function Container({ children, className = "" }) {
   return (
-    <div className={className + " " + "h-screen  md:max-w-[1440px] mx-auto"}>
+    <div
+      className={
+        className + " " + "h-screen  overflow-hidden  md:max-w-[1440px] mx-auto"
+      }
+    >
       {children}
     </div>
   );
@@ -1556,7 +1635,7 @@ function CollapseText({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] md:text-[18px] z-10 font-medium leading-[140%] max-w-[290px] md:max-w-[550px] self-start md:self-end text-[#373635]" +
+        "text-[14px] pl-1 pb-4 sm:pb-6 overflow-x-hidden pt-1 md:text-[18px] z-10 font-medium leading-[140%] max-w-[290px] md:max-w-[550px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
@@ -1597,7 +1676,7 @@ function SubTitle({ children, className = "", id }) {
 
 function CollapseToggle({ text }) {
   return (
-    <span className="text-7xl z-10 block font-medium leading-[100%] tracking-[18px] uppercase">
+    <span className="text-6xl pl-2 z-10 block font-medium leading-[100%] tracking-[18px] uppercase">
       {text}
     </span>
   );

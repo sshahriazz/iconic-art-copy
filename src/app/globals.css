@@ -282,6 +282,9 @@ body {
   transition: transform 0.1s;
   scale: 0;
 }
+.border-width {
+  width: 8%;
+}
 /* .craft-box {
   bottom: -100%;
   right: 0;
