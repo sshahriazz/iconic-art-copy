@@ -237,51 +237,6 @@ body {
   transform: translateX(700px);
 }
 
-.rect-mobile {
-  top: 150%;
-  left: 0;
-}
-.rect-mobile-1 {
-  top: 100%;
-  right: 0;
-}
-
-.top-center-rect {
-  top: 100%;
-  left: 45%;
-}
-.top-center-rect-2 {
-  top: 100%;
-  left: 45%;
-}
-.bottom-center-rect {
-  top: 100%;
-  left: 45%;
-}
-.bottom-center-rect-2 {
-  top: 100%;
-  left: 45%;
-}
-.top-right-rect {
-  top: 100%;
-  right: 0;
-}
-.left-bottom-rect {
-  top: 100%;
-  left: 0;
-}
-.logo-box-mobile {
-  /* opacity: 0; */
-  transform: translateY(-500px);
-  transition: transform 0.1s;
-  /* scale: 0; */
-}
-.logo-box-mobile-1 {
-  /* opacity: 0; */
-  transform: translateY(500px);
-  transition: transform 0.1s;
-  /* scale: 0; */
-}
 .border-width {
   width: 8%;
 }

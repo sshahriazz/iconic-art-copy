@@ -9,7 +9,7 @@ import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import AppLogo, { NavLogo, NavLogoMobile } from "./components/AppLogo";
 import { useIsomorphicLayoutEffect } from "./components/helpers/isomorphicEffect";
-import { Power3, Power4 } from "gsap";
+import { Power2, Power3, Power4 } from "gsap";
 import { Power0 } from "gsap";
 import FooterLogo from "./components/FooterLogo";
 
@@ -144,61 +144,7 @@ const Home = () => {
           tl.to(".remove-up", {
             y: -400,
             duration: 3,
-            ease: Power3.easeOut,
-          });
-          gsap.to(
-            ".logo-box-mobile",
-            {
-              y: 0,
-              duration: 2.5,
-            },
-            "<"
-          );
-          gsap.to(
-            ".logo-box-mobile-1",
-            {
-              y: 0,
-              duration: 1,
-            },
-            "<"
-          );
-          tl.to(
-            isDesktop ? ".top-center-rect" : ".rect-mobile",
-            {
-              top: "-100%",
-              duration: 1,
-              delay: 2,
-            },
-            "<"
-          );
-          tl.to(isDesktop ? ".left-bottom-rect" : ".rect-mobile-1", {
-            top: "-100%",
-            duration: 1,
-          });
-          tl.to(
-            ".bottom-center-rect-2",
-            {
-              top: "-100%",
-              duration: 2,
-            },
-            "<"
-          );
-
-          tl.to(".top-center-rect-2", {
-            top: "-100%",
-            duration: 1,
-          });
-          tl.to(
-            ".top-right-rect",
-            {
-              top: "-100%",
-              duration: 3,
-            },
-            "<"
-          );
-          tl.to(".bottom-center-rect", {
-            top: "-100%",
-            duration: 1,
+            ease: Power2.easeOut,
           });
 
           tl.to(
@@ -375,6 +321,20 @@ const Home = () => {
               end: "+=100%",
               toggleActions: "play pause resume reverse",
             },
+          });
+          const boxes = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".box-trigger",
+              start: `top +=30%`,
+              end: "+=150%",
+              scrub: 0.2,
+            },
+          });
+          boxes.to(".blank-box-top", {
+            top: 0,
+          });
+          boxes.to(".blank-box-bottom", {
+            bottom: 0,
           });
           assets.fromTo(
             ".assets-box",
@@ -836,39 +796,15 @@ const Home = () => {
   return (
     <div ref={main} className="relative">
       <div className="flex flex-col relative justify-center h-screen w-full px-4 md:px-10 max-w-[1440px] mx-auto">
-        <svg
-          className="absolute top-0 right-0 block logo-box-mobile sm:hidden  z-0"
-          width="130"
-          height="137"
-          viewBox="0 0 130 137"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            width="562"
-            height="137"
-            transform="matrix(-1 0 0 -1 562 137)"
-            fill="#F4F4F4"
-          />
-        </svg>
-        <svg
-          className="absolute block sm:hidden bottom-0 logo-box-mobile-1 right-[30%] z-0"
-          width="65"
-          height="158"
-          viewBox="0 0 65 158"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            width="65"
-            height="306"
-            transform="matrix(-1 0 0 -1 65 306)"
-            fill="#F4F4F4"
-          />
-        </svg>
         <AppLogo />
+      </div>
+      <div className="max-w-[1440px]   z-50  mx-auto sticky pb-3 pt-10 top-0 flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
+        <NavLogo />
+        <Button link="#">Find out more</Button>
+      </div>
+      <Container className="relative box-trigger">
         <svg
-          className="absolute hidden sm:block top-center-rect"
+          className="absolute hidden md:block top-[50%] left-[45%] blank-box-top"
           width="180"
           height="53"
           viewBox="0 0 180 53"
@@ -883,22 +819,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute hidden sm:block bottom-center-rect-2 border"
-          width="180"
-          height="313"
-          viewBox="0 0 180 313"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <rect
-            width="180"
-            height="668"
-            transform="matrix(1 0 0 -1 0 668.584)"
-            fill="#F4F4F4"
-          />
-        </svg>
-        <svg
-          className="absolute hidden sm:block top-right-rect"
+          className="absolute hidden md:block top-[50%] right-0 blank-box-top"
           width="360"
           height="138"
           viewBox="0 0 360 138"
@@ -913,7 +834,22 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute hidden sm:block top-center-rect-2"
+          className="absolute hidden md:block bottom-[-40%] left-[45%] blank-box-bottom"
+          width="180"
+          height="313"
+          viewBox="0 0 180 313"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            width="180"
+            height="668"
+            transform="matrix(1 0 0 -1 0 668.584)"
+            fill="#F4F4F4"
+          />
+        </svg>
+        <svg
+          className="absolute hidden md:block top-[40%] bottom-[12%] left-0 blank-box-top"
           width="180"
           height="475"
           viewBox="0 0 180 475"
@@ -928,7 +864,7 @@ const Home = () => {
           />
         </svg>
         <svg
-          className="absolute hidden sm:block left-bottom-rect"
+          className="absolute hidden md:block top-[100%] left-[35%] blank-box-top"
           width="462"
           height="316"
           viewBox="0 0 462 316"
@@ -942,13 +878,14 @@ const Home = () => {
             fill="#F4F4F4"
           />
         </svg>
+        {/* Mobile Boxes */}
         <svg
-          xmlns="http://www.w3.org/2000/svg"
           width="391"
-          className="absolute block sm:hidden rect-mobile"
+          className="absolute top-[100%] left-0 md:hidden blank-box-top"
           height="196"
           viewBox="0 0 391 196"
           fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
           <path
             d="M218.892 130.209L390.883 130.209L390.883 195.314L0.882804 195.314L0.882812 0.314436L218.892 0.314446L218.892 130.209Z"
@@ -956,9 +893,9 @@ const Home = () => {
           />
         </svg>
         <svg
+          className="absolute bottom-[20%] left-[45%] md:hidden blank-box-bottom"
           width="151"
           height="121"
-          className="absolute block sm:hidden rect-mobile-1"
           viewBox="0 0 151 121"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -970,11 +907,8 @@ const Home = () => {
             fill="#F4F4F4"
           />
         </svg>
-      </div>
-      <div className="max-w-[1440px]   z-50  mx-auto sticky pb-3 pt-10 top-0 flex w-full items-center justify-between px-4 sm:px-5 md:px-10">
-        <NavLogo />
-        <Button link="#">Find out more</Button>
-      </div>
+      </Container>
+
       <Container className="relative craft-parallax">
         <svg
           width="130"
