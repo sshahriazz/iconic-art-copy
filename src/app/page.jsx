@@ -799,7 +799,6 @@ const Home = () => {
                 trigger: ".piece-trigger",
                 start: `top +=30%`,
                 end: "+=100%",
-                markers: true,
                 toggleActions: "play pause resume reverse",
               },
             }
