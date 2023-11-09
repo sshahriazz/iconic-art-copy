@@ -7,7 +7,7 @@ import Button from "./components/Button";
 import dynamic from "next/dynamic";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import AppLogo, { NavLogo } from "./components/AppLogo";
+import AppLogo, { NavLogo, NavLogoMobile } from "./components/AppLogo";
 import { useIsomorphicLayoutEffect } from "./components/helpers/isomorphicEffect";
 import { Power3, Power4 } from "gsap";
 import { Power0 } from "gsap";
@@ -88,8 +88,7 @@ const Home = () => {
               trigger: ".body",
               start: isDesktop ? "top -=5" : "top -=10",
               end: isDesktop ? "+=100" : "+=500",
-              scrub: 1.5,
-              pin: true,
+              scrub: 1,
             },
           });
           gsap.to(isDesktop ? ".desktop-logo-svg" : ".mobile-logo-svg", {
@@ -141,12 +140,17 @@ const Home = () => {
             },
             "<"
           );
+
+          tl.to(".remove-up", {
+            y: -400,
+            duration: 3,
+            ease: Power3.easeOut,
+          });
           gsap.to(
             ".logo-box-mobile",
             {
               y: 0,
-              scale: 1,
-              opacity: 1,
+              duration: 2.5,
             },
             "<"
           );
@@ -154,16 +158,10 @@ const Home = () => {
             ".logo-box-mobile-1",
             {
               y: 0,
-              scale: 1,
-              opacity: 1,
+              duration: 1,
             },
             "<"
           );
-          tl.to(".remove-up", {
-            y: -400,
-            duration: 3,
-            ease: Power3.easeOut,
-          });
           tl.to(
             isDesktop ? ".top-center-rect" : ".rect-mobile",
             {
@@ -271,8 +269,6 @@ const Home = () => {
               trigger: ".craft-parallax",
               start: `top +=30%`,
               end: "+=100%",
-              // pin: true,
-              // scrub: 1,
               toggleActions: "play pause resume reverse",
             },
           });
@@ -476,6 +472,23 @@ const Home = () => {
             },
             "<"
           );
+          // world-box-mobile
+
+          gsap.fromTo(
+            ".world-box-mobile",
+            {
+              top: "100%",
+            },
+            {
+              top: 0,
+              scrollTrigger: {
+                trigger: ".world-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
 
           animateText({
             target: ".heading-text-world",
@@ -490,7 +503,7 @@ const Home = () => {
           animateText({
             target: ".description-text-world",
             trigger: ".world-trigger",
-            start: isDesktop ? "-=70" : "+=100",
+            start: isDesktop ? "-=20" : "+=100",
           });
           const security = gsap.timeline({
             scrollTrigger: {
@@ -521,6 +534,19 @@ const Home = () => {
               bottom: 0,
             },
             "<"
+          );
+          gsap.fromTo(
+            ".security-box-mobile",
+            { top: "100%" },
+            {
+              top: 0,
+              scrollTrigger: {
+                trigger: ".security-target",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
           );
           animateText({
             target: ".heading-text-security",
@@ -554,6 +580,39 @@ const Home = () => {
             },
             {
               top: 0,
+            }
+          );
+
+          gsap.fromTo(
+            ".unique-box-mobile",
+            {
+              top: "100%",
+            },
+            {
+              top: 0,
+              stagger: 2,
+              scrollTrigger: {
+                trigger: ".unique-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".unique-box-mobile-1",
+            {
+              bottom: "-100%",
+            },
+            {
+              bottom: 0,
+              stagger: 2,
+              scrollTrigger: {
+                trigger: ".unique-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
             }
           );
 
@@ -620,6 +679,37 @@ const Home = () => {
             "<"
           );
 
+          gsap.fromTo(
+            ".transparency-box-mobile",
+            {
+              bottom: "-100%",
+            },
+            {
+              bottom: 0,
+              scrollTrigger: {
+                trigger: ".transparency-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".transparency-box-mobile-1",
+            {
+              top: "100%",
+            },
+            {
+              top: 0,
+              scrollTrigger: {
+                trigger: ".transparency-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+
           animateText({
             target: ".heading-text-transparency",
             trigger: ".transparency-trigger",
@@ -633,7 +723,7 @@ const Home = () => {
           animateText({
             target: ".description-text-transparency",
             trigger: ".transparency-trigger",
-            start: isDesktop ? "-=50" : "+=150",
+            start: isDesktop ? "-=20" : "+=150",
           });
 
           animateText({
@@ -686,6 +776,34 @@ const Home = () => {
               );
             },
           });
+          // security-box-mobile
+          gsap.fromTo(
+            ".security-box-mobile",
+            { top: "100%" },
+            {
+              top: 0,
+              scrollTrigger: {
+                trigger: ".piece-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
+          gsap.fromTo(
+            ".piece-box-mobile-1",
+            { bottom: "100%" },
+            {
+              bottom: 0,
+              scrollTrigger: {
+                trigger: ".piece-trigger",
+                start: `top +=30%`,
+                end: "+=100%",
+                markers: true,
+                toggleActions: "play pause resume reverse",
+              },
+            }
+          );
 
           gsap.to(".piece-box", {
             bottom: 0,
@@ -1141,7 +1259,7 @@ const Home = () => {
 
       <Container className="relative world-parallax">
         <svg
-          className="absolute top-0 right-0 block sm:hidden world-box-mobile"
+          className="absolute right-0 block sm:hidden world-box-mobile"
           width="195"
           height="441"
           viewBox="0 0 195 441"
@@ -1226,7 +1344,7 @@ const Home = () => {
 
       <Container className="relative">
         <svg
-          className="absolute block top-0 left-0 sm:hidden piece-box-mobile"
+          className="absolute block  left-0 sm:hidden security-box-mobile"
           width="390"
           height="404"
           viewBox="0 0 390 404"
@@ -1262,7 +1380,7 @@ const Home = () => {
             }
             subTitle={
               <SubTitle className="sub-heading-text-security">
-                The Cornerstones <br className="block sm:hidden" /> of{" "}
+                The Cornerstones <br className="block sm:hidden" /> of
                 <br className="hidden sm:block" /> Tangible
                 <br className="block sm:hidden" />
                 Asset Investment
@@ -1397,7 +1515,7 @@ const Home = () => {
       </Container>
       <Container className="relative transparency-parallax">
         <svg
-          className="absolute bottom-0 left-0 block sm:hidden transparency-box-mobile-1"
+          className="absolute left-0 block sm:hidden transparency-box-mobile"
           width="107"
           height="162"
           viewBox="0 0 107 162"
@@ -1414,7 +1532,7 @@ const Home = () => {
 
         <svg
           width="390"
-          className="absolute block top-0 left-0 sm:hidden transparency-box-mobile"
+          className="absolute block top-0 left-0 sm:hidden transparency-box-mobile-1"
           height="288"
           viewBox="0 0 390 288"
           fill="none"
@@ -1456,7 +1574,7 @@ const Home = () => {
           />
         </ItemContainer>
         <svg
-          className="absolute hidden sm:block transparency-box-2"
+          className="absolute -z-10 hidden sm:block transparency-box-2"
           width="360"
           height="142"
           viewBox="0 0 360 142"
@@ -1472,7 +1590,7 @@ const Home = () => {
         </svg>
 
         <svg
-          className="absolute hidden sm:block transparency-box"
+          className="absolute -z-10 hidden sm:block transparency-box"
           width="900"
           height="576"
           viewBox="0 0 900 576"
@@ -1497,7 +1615,7 @@ const Home = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2">
           <div className="flex relative flex-col w-full xl:h-screen py-28 sm:py-10">
             <svg
-              className="absolute bottom-0 right-0"
+              className="sm:hidden absolute right-0 piece-box-mobile-1"
               width="195"
               height="66"
               viewBox="0 0 195 66"
@@ -1623,7 +1741,7 @@ const Home = () => {
             <FooterLogo />
           </div>
           <div className="block md:hidden scale-[2]">
-            <NavLogo />
+            <NavLogoMobile />
           </div>
         </div>
 
@@ -1684,11 +1802,7 @@ export default Home;
 
 function Container({ children, className = "" }) {
   return (
-    <div
-      className={
-        className + " " + "h-screen  overflow-hidden  md:max-w-[1440px] mx-auto"
-      }
-    >
+    <div className={className + " " + "h-screen  md:max-w-[1440px] mx-auto"}>
       {children}
     </div>
   );
@@ -1751,6 +1865,7 @@ function Title({ children, className = "", id }) {
     </h1>
   );
 }
+
 function SubTitle({ children, className = "", id }) {
   return (
     <h2
@@ -1795,7 +1910,6 @@ function ContentLayout({ title, subTitle, description }) {
         {title}
         {subTitle}
       </div>
-
       {description}
     </div>
   );

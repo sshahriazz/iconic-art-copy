@@ -271,16 +271,16 @@ body {
   left: 0;
 }
 .logo-box-mobile {
-  opacity: 0;
+  /* opacity: 0; */
   transform: translateY(-500px);
   transition: transform 0.1s;
-  scale: 0;
+  /* scale: 0; */
 }
 .logo-box-mobile-1 {
-  opacity: 0;
+  /* opacity: 0; */
   transform: translateY(500px);
   transition: transform 0.1s;
-  scale: 0;
+  /* scale: 0; */
 }
 .border-width {
   width: 8%;
