@@ -1277,7 +1277,7 @@ const Home = () => {
 
       <Container className="relative">
         <svg
-          className="absolute block  left-0 sm:hidden security-box-mobile"
+          className="absolute block w-full left-0 sm:hidden security-box-mobile"
           width="390"
           height="404"
           viewBox="0 0 390 404"
@@ -1370,7 +1370,7 @@ const Home = () => {
       <Container className="relative unique-parallax">
         <svg
           width="390"
-          className="absolute block top-0 left-0 sm:hidden unique-box-mobile"
+          className="absolute w-full block top-0 left-0 sm:hidden unique-box-mobile"
           height="340"
           viewBox="0 0 390 340"
           fill="none"
@@ -1448,7 +1448,7 @@ const Home = () => {
       </Container>
       <Container className="relative transparency-parallax">
         <svg
-          className="absolute left-0 block sm:hidden transparency-box-mobile"
+          className="absolute left-0  block sm:hidden transparency-box-mobile"
           width="107"
           height="162"
           viewBox="0 0 107 162"
@@ -1465,7 +1465,7 @@ const Home = () => {
 
         <svg
           width="390"
-          className="absolute block top-0 left-0 sm:hidden transparency-box-mobile-1"
+          className="absolute w-full block top-0 left-0 sm:hidden transparency-box-mobile-1"
           height="288"
           viewBox="0 0 390 288"
           fill="none"
@@ -1746,7 +1746,7 @@ function Description({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] z-10 font-futura md:text-[22px] pb-[50%] sm:pb-[5%] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
+        "text-[14px] z-10 font-futura md:text-[22px] pb-[50%] sm:pb-[35%] lg:pb-[5%] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
@@ -1791,7 +1791,7 @@ function Title({ children, className = "", id }) {
       className={
         className +
         " " +
-        "text-[3.375rem] block md:text-[8rem] max-w-[327px] md:max-w-[972px]  font-bold leading-[80%] uppercase text-[#373635]"
+        "text-[3.375rem] block md:text-[5rem] lg:text-[8rem] max-w-[327px] md:max-w-[972px]  font-bold leading-[80%] uppercase text-[#373635]"
       }
     >
       {children}
@@ -1839,7 +1839,7 @@ function ItemContainer({ children, className }) {
 function ContentLayout({ title, subTitle, description }) {
   return (
     <div className="flex flex-col z-10 justify-between h-full w-full">
-      <div className="pt-32 sm:pt-0">
+      <div className="pt-32 sm:pt-28 lg:pt-0">
         {title}
         {subTitle}
       </div>

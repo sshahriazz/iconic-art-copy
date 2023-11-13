@@ -2,7 +2,7 @@ import React from "react";
 
 function FooterLogo() {
   return (
-    <div className="">
+    <div className="md:scale-[0.7] lg:scale-100">
       <div className="hidden z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
         <svg
           className="start-svg-char"
