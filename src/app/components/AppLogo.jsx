@@ -2,7 +2,7 @@ import React from "react";
 
 function AppLogo() {
   return (
-    <div className="remove-up">
+    <div className="remove-up absolute app-icon-trigger">
       <div className="hidden z-10 sm:flex justify-center w-full relative gap-[1.875rem] items-baseline">
         <svg
           className="start-svg-char"
@@ -105,11 +105,6 @@ function AppLogo() {
             d="M118.699 118.072H83.644L74.5224 138H61.2112L99.2132 56.0215H104.051L140.813 138H127.29L118.699 118.072ZM113.661 106.433L101.516 78.5338L88.7882 106.433H113.661Z"
             fill="white"
           />
-          {/* <defs>
-            <clipPath id="clip0_839_4074">
-              <rect width="115" height="138" fill="white" />
-            </clipPath>
-          </defs> */}
         </svg>
 
         <svg
