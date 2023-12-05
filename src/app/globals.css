@@ -216,22 +216,87 @@ body {
   opacity: 0;
   transform: translateX(-700px);
   transition: transform 0.1s;
-  scale: 0;
 }
 .sub-heading-text-piece {
   opacity: 0;
-  transform: translateX(-700px);
+  transform: translateX(-1000px);
   transition: transform 0.1s;
-  scale: 0;
 }
 .email-box {
   opacity: 0;
-  transform: translateX(700px);
+  transform: translateX(1000px);
 }
 
-.border-width {
-  width: 8%;
+.rect-1 {
+  opacity: 0;
+  transform: translateY(-1000px);
 }
+.rect-2 {
+  opacity: 0;
+  transform: translateY(-1500px);
+}
+
+.rect-3 {
+  opacity: 0;
+  transform: translateX(-500px);
+  transform: translateY(3000px);
+}
+
+.rect-4 {
+  opacity: 0;
+  transform: translateX(-600px);
+  transform: translateY(-800px);
+}
+
+.rect-5 {
+  opacity: 0;
+  transform: translateY(-550px);
+  transform: translateY(-700px);
+}
+
+.rect-6 {
+  opacity: 0;
+  transform: translateX(-1400px);
+  transform: translateY(-1100px);
+}
+
+.rect-7 {
+  opacity: 0;
+  transform: translateX(-300px);
+  transform: translateY(-700px);
+}
+
+.rect-8 {
+  opacity: 0;
+  transform: translateY(-1600px);
+}
+
+.rect-9 {
+  opacity: 0;
+  transform: translateY(-500px);
+  transform: translateX(-1500px);
+}
+
+.rect-10 {
+  opacity: 0;
+  transform: translateX(-300px);
+  transform: translateY(-800px);
+}
+
+.rect-11 {
+  opacity: 0;
+  transform: translateY(-800px);
+  transform: translateX(-400px);
+}
+
+.rect-12 {
+  opacity: 0;
+  transform: translateY(-1500px);
+}
+
+/* .border-width {
+  width: 8%;
+} */
 /* .craft-box {
   bottom: -100%;
   right: 0;
