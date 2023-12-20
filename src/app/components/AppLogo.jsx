@@ -82,6 +82,14 @@ function AppLogo() {
             fill="#373635"
           />
         </svg>
+{/* 
+        <svg className="desktop-logo-svg" width="115" height="142" viewBox="0 0 115 142" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path className="desktop-logo-cube" d="M55.2556 0.0107422H0.00390625V55.8733H55.2556V0.0107422Z" fill="#373635"/>
+<path d="M55.2517 0V55.8714H0V141.799H115V61.2425V0H55.2517Z" fill="#373635"/>
+<path className="desktop-logo-a" d="M94.5628 44.1904L47.9062 144.408H64.1941L75.3581 120.067H118.259L128.778 144.408H145.336L100.319 44.1904H94.5628ZM81.6564 105.857L97.2344 71.7843L112.103 105.857H81.6564Z" fill="white"/>
+
+</svg> */}
+
 
         <svg
           className="desktop-logo-svg"
