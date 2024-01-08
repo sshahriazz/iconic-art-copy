@@ -49,18 +49,7 @@ const Home = () => {
     const ctx = gsap.context((self) => {
       const mm = gsap.matchMedia(main);
 
-      function animateText({ target, trigger, start }) {
-        gsap.to(target, {
-          x: 0,
-          opacity: 1,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: trigger,
-            start: `top ${start}`,
-            toggleActions: "play pause resume reverse",
-          },
-        });
-      }
+      
 
       const breakPoint = 640;
 
@@ -76,9 +65,9 @@ const Home = () => {
             scrollTrigger: {
               trigger: ".app-icon-trigger",
               start: isDesktop ? "center center" : "top -=10",
-              end: isDesktop ? "+=1000 bottom" : "+=500",
+              end: isDesktop ? "+=1300 bottom" : "+=500",
               pin: true,
-              scrub: 1,
+              scrub: 1.5,
             },
           });
           gsap.to(isDesktop ? ".desktop-logo-svg" : ".mobile-logo-svg", {
@@ -490,8 +479,8 @@ const Home = () => {
           const unique = gsap.timeline({
             scrollTrigger: {
               trigger: ".unique-trigger",
-              start: isDesktop ? "center center" : "top -=10",
-              end: isDesktop ? "+=2000 bottom" : "+=500",
+              start: isDesktop ? "top +=10" : "top -=10",
+              end: isDesktop ? "+=1400 top" : "+=500",
               pin: true,
               scrub: 2,
             },
@@ -1314,7 +1303,7 @@ const Home = () => {
               </SubTitle>
             }
           />
-          <div className="w-full md:w-1/2 pb-[50%] sm:pt-[2%]  self-start md:self-end text-[22px] font-medium">
+          <div className="w-full md:w-1/2  pt-24  self-start md:self-end text-[22px] font-medium">
             {collapseData.map((desc, index) => (
               <Collapsed
                 isActive={activeIndex === index}
@@ -1513,7 +1502,7 @@ export default Home;
 
 function Container({ children, className = "" }) {
   return (
-    <div className={className + " " + "h-screen  md:max-w-[1440px] mx-auto"}>
+    <div className={className + " " + "md:max-w-[1440px] mx-auto h-full"}>
       {children}
     </div>
   );
@@ -1524,7 +1513,7 @@ function Description({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] z-10 font-futura md:text-[22px]  pb-[40%] sm:pb-[15%] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
+        "text-[14px] z-10 pt-24 font-futura md:text-[22px] font-medium leading-[140%] max-w-[290px] md:max-w-[600px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
@@ -1538,7 +1527,7 @@ function WorldDescription({ children, className = "", id }) {
     <p
       id={id}
       className={
-        "text-[14px] z-10 font-futura md:text-[22px] pb-[35%] sm:pb-[5%]  font-medium leading-[140%] max-w-[290px] md:max-w-[650px] self-start md:self-end text-[#373635]" +
+        "text-[14px] z-10 pt-24 font-futura md:text-[22px] font-medium leading-[140%] max-w-[290px] md:max-w-[650px] self-start md:self-end text-[#373635]" +
         " " +
         className
       }
